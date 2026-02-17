@@ -1,0 +1,831 @@
+/* ===================================
+   GLOBAL STYLES & VARIABLES
+   =================================== */
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --accent-color: #f093fb;
+    --dark-color: #1a1a2e;
+    --light-color: #f8f9fa;
+    --text-color: #333;
+    --text-light: #6c757d;
+    --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===================================
+   NAVIGATION
+   =================================== */
+.navbar {
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand .brand-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem !important;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--gradient-1);
+    transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 80%;
+}
+
+/* ===================================
+   HERO SECTION
+   =================================== */
+.hero-section {
+    background: var(--dark-color);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+.hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.gradient-text {
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.typewriter-container {
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 400;
+}
+
+#typewriter {
+    color: var(--accent-color);
+    border-right: 2px solid var(--accent-color);
+    padding-right: 5px;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons .btn {
+    margin: 0.5rem;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--gradient-1);
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.btn-outline-light:hover {
+    background: #fff;
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: var(--gradient-1);
+    transform: translateY(-5px);
+    color: #fff;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator a {
+    color: #fff;
+    font-size: 2rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-indicator a:hover {
+    opacity: 1;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* ===================================
+   SECTION UTILITIES
+   =================================== */
+.section-padding {
+    padding: 100px 0;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.title-line {
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-1);
+    margin: 0 auto 1rem;
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-top: 1rem;
+}
+
+/* ===================================
+   ABOUT SECTION
+   =================================== */
+.about-image-wrapper {
+    position: relative;
+    animation: fadeInLeft 1s ease;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.about-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.profile-placeholder {
+    width: 100%;
+    height: 400px;
+    background: var(--gradient-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 8rem;
+}
+
+.about-content {
+    animation: fadeInRight 1s ease;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.about-content h3 {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.about-content p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.info-item {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-item i {
+    color: var(--primary-color);
+}
+
+/* ===================================
+   SKILLS SECTION
+   =================================== */
+
+/* TO CUSTOMIZE: Change data-progress values in HTML to adjust skill levels (0-100) */
+.skill-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-md);
+}
+
+.skill-icon {
+    font-size: 3rem;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.skill-card h5 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.skill-bar {
+    background: #e9ecef;
+    height: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-progress {
+    height: 100%;
+    background: var(--gradient-1);
+    border-radius: 10px;
+    transition: width 1s ease;
+    width: 0;
+}
+
+/* ===================================
+   EDUCATION SECTION
+   =================================== */
+.timeline {
+    position: relative;
+    padding: 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    height: 100%;
+    width: 2px;
+    background: var(--gradient-1);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 2rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--gradient-1);
+    border: 4px solid #fff;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+}
+
+.timeline-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.timeline-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateX(10px);
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.timeline-header h4 {
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.timeline-date {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.timeline-card h5 {
+    margin-bottom: 0.5rem;
+}
+
+.institution {
+    color: var(--text-light);
+}
+
+/* ===================================
+   CERTIFICATIONS SECTION
+   =================================== */
+
+/* TO ADD NEW CERTIFICATIONS: Copy the cert-card structure in HTML */
+.cert-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+    border: 2px solid transparent;
+}
+
+.cert-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-md);
+}
+
+.cert-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.cert-card h5 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    min-height: 60px;
+}
+
+.cert-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ===================================
+   PROJECTS SECTION
+   =================================== */
+
+/* TO ADD NEW PROJECTS: Copy the project-card structure in HTML and customize image, title, description, and tags */
+.project-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-image {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(102, 126, 234, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-link {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    transform: scale(1.2);
+    color: var(--primary-color);
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-content h5 {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+}
+
+.project-content p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background: rgba(102, 126, 234, 0.1);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* ===================================
+   CONTACT SECTION
+   =================================== */
+.bg-dark {
+    background: var(--dark-color) !important;
+}
+
+.contact-info {
+    padding: 1rem 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.5rem;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.contact-details h5 {
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.contact-details p,
+.contact-details a {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+.contact-details a:hover {
+    color: var(--accent-color);
+}
+
+.contact-form-wrapper {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.contact-form .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+    color: #fff;
+}
+
+.contact-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+.footer {
+    background: #0d0d1e;
+    padding: 2rem 0;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer p {
+    margin-bottom: 1rem;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.footer-social a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    background: var(--gradient-1);
+    transform: translateY(-3px);
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .timeline::before {
+        left: 10px;
+    }
+
+    .timeline-dot {
+        left: 0;
+    }
+
+    .timeline-item {
+        padding-left: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .timeline-header {
+        flex-direction: column;
+    }
+
+    .timeline-date {
+        margin-top: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-buttons .btn {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .profile-placeholder {
+        height: 300px;
+        font-size: 5rem;
+    }
+}
+
+/* ===================================
+   SCROLL ANIMATIONS
+   =================================== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===================================
+   CUSTOMIZATION GUIDE
+   ===================================
+   
+   COLORS:
+   - Change colors in :root variables at the top
+   - var(--primary-color): Main brand color
+   - var(--secondary-color): Secondary brand color
+   - var(--accent-color): Accent highlights
+   
+   SKILLS:
+   - Add new skills: Copy .skill-card HTML structure
+   - Adjust skill level: Change data-progress value (0-100)
+   - Change icons: Use Font Awesome icon classes
+   
+   PROJECTS:
+   - Add new projects: Copy .project-card HTML structure
+   - Change images: Update img src attribute
+   - Modify tags: Edit .tag elements in .project-tags
+   
+   CERTIFICATIONS:
+   - Add more: Copy .cert-card HTML structure
+   - Icons: Use Font Awesome classes in .cert-icon
+   
+   FONTS:
+   - Primary font: Change 'Poppins' in Google Fonts import
+   - Update font-family in body selector
+   
+   =================================== */
